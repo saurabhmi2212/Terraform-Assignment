@@ -88,3 +88,8 @@ module "update_management" {
   virtual_machine_ids   = [locals.vm_id]
   start_time            = "2025-08-16T10:00:00Z" #  need to set a future time
 }
+
+
+output "public_ip_address" {
+  value = module.vm.public_ip_address
+}
