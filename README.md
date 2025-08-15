@@ -1,19 +1,12 @@
 
 
-<h1>Azure Infrastructure with Automated Patch Management </h1>
+# <h1>Azure Infrastructure with Automated Patch Management </h1>
 
 
 
-This repository contains modular Terraform code to provision a complete Azure environment, including a virtual machine (VM) with automated patch management, a network, and security configurations. The project is divided into a main patch management solution and a bonus challenge that combines all modules into a full-stack environment.
+## This repository contains modular Terraform code to provision a complete Azure environment, including a virtual machine (VM) with automated patch management, a network, and security configurations. The project is divided into a main patch management solution and a bonus challenge that combines all modules into a full-stack environment.
 
-
-<h3></h3>
-**Instructions**
-
-**Generate an SSH Key**: Created SSH public key to access the VM.
-
-ssh-keygen -t rsa -b 2048 -f ~/.ssh/id_rsa
-
+### **Instructions**
 
 **Initialize Terraform**: Navigate to the root directory of the project and initialize Terraform.
 
@@ -57,14 +50,14 @@ automation :-  This module sets up the Azure Automation Account, a prerequisite 
 update_management :- This module configures the patch schedule and links it to the VM.
 
 
-**Access the Web Server**: After the deployment is complete, Terraform will output the public IP address. Copy the IP and paste it into  web browser. We will see the default NGINX welcome page.
+#### **Access the Web Server**: After the deployment is complete, Terraform will output the public IP address. Copy the IP and paste it into  web browser. We will see the default NGINX welcome page.
 
 ssh azureuser@<public_ip_address>
 sudo systemctl status nginx
 
 
 
-**Bonus Challenge: Full Environment Using Modules**
+#### **Bonus Challenge: Full Environment Using Modules**
 
 
 This section combines all modules to deploy a complete, parameterized environment. The environment includes:
