@@ -1,9 +1,14 @@
-<h1>Instructions</h1>
+
+
+<h1>Azure Infrastructure with Automated Patch Management </h1>
 
 
 
+This repository contains modular Terraform code to provision a complete Azure environment, including a virtual machine (VM) with automated patch management, a network, and security configurations. The project is divided into a main patch management solution and a bonus challenge that combines all modules into a full-stack environment.
 
 
+<h3></h3>
+**Instructions**
 
 **Generate an SSH Key**: Created SSH public key to access the VM.
 
@@ -23,7 +28,6 @@ ssh-keygen -t rsa -b 2048 -f ~/.ssh/id_rsa
 
 **terraform apply**
 
-**Access the Web Server**: After the deployment is complete, Terraform will output the public IP address. Copy the IP and paste it into  web browser. We will see the default NGINX welcome page.
 
 
 **Module Documentation**
@@ -46,4 +50,34 @@ Inputs: vm_name, resource_group_name, location, subnet_id, nsg_id, public_key, c
 
 Outputs: public_ip_address
 
+log_analytics :- This module creates a Log Analytics Workspace, which is a central repository for logs and metrics.
+
+automation :-  This module sets up the Azure Automation Account, a prerequisite for Update Management
+
+update_management :- This module configures the patch schedule and links it to the VM.
+
+
+**Access the Web Server**: After the deployment is complete, Terraform will output the public IP address. Copy the IP and paste it into  web browser. We will see the default NGINX welcome page.
+
+ssh azureuser@<public_ip_address>
+sudo systemctl status nginx
+
+
+
+**Bonus Challenge: Full Environment Using Modules**
+
+
+This section combines all modules to deploy a complete, parameterized environment. The environment includes:
+
+A Linux VM with NGINX installed via a cloud-init script.
+
+A Virtual Network (VNet) and a Subnet for network isolation.
+
+A Network Security Group (NSG) to secure the VM.
+
+Azure Update Management to automatically patch the VM on a weekly schedule.
+
+
+
+**Monitor Patch Management**: Visit the Azure Portal to check the Automation Account and Log Analytics Workspace to see the patch management configuration and compliance reports.
 
