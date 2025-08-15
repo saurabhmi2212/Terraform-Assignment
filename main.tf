@@ -53,3 +53,38 @@ module "vm" {
   public_key          = var.public_key
   custom_data         = local_file.cloud_init.content
 }
+
+
+# Placeholder for a VM ID - replace with a real VM resource
+resource "null_resource" "placeholder_vm" {
+  provisioner "local-exec" {
+    command = "echo 'Creating a placeholder for a VM ID...'"
+  }
+}
+
+locals {
+  vm_id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-rg/providers/Microsoft.Compute/virtualMachines/example-vm"
+}
+
+module "log_analytics" {
+  source              = "./modules/log_analytics"
+  workspace_name      = "example-law"
+  location            = "eastus"
+  resource_group_name = "example-rg"
+}
+
+module "automation" {
+  source                     = "./modules/automation"
+  automation_account_name    = "example-automation-account"
+  location                   = module.log_analytics.location
+  resource_group_name        = module.log_analytics.resource_group_name
+  log_analytics_workspace_id = module.log_analytics.id
+}
+
+module "update_management" {
+  source                = "./modules/update_management"
+  update_config_name    = "weekly-linux-patching"
+  automation_account_id = module.automation.id
+  virtual_machine_ids   = [locals.vm_id]
+  start_time            = "2025-08-16T10:00:00Z" #  need to set a future time
+}
