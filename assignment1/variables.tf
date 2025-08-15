@@ -49,5 +49,7 @@ variable "vm_name" {
 variable "public_key" {
   description = "The SSH public key for the VM"
   type        = string
-  sensitive   = true
+  sensitive   = true 
+  default     = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDRXz+R0UHkt3AjHIqLgfcGZeQZRE71jlE11F2Z4sWH/BNjrcSK0m1oWAiT4vWF21NH4S+y5EczYIH7ectTaTlTaBiPAFZ7MeiLnGsr6Kz5JwhLG+A2xTyI2+Yi31sPKU2KllhedK+oCRV+zLh460dFL1+sMgRhPRmtUc831UvHt44zlaMVLCt147ecxHD7M3jbrgYzn0zK/SvDXYdsDCe2mQGgJ2jaU5FQcWbObubFYMvTwwHVxdiy/E3wTbeD5xHNZ2pgTRTEyn1VOYZVIIgrMXU+exs7NmR9vyS7gEUWo0hGY/MXzR5nVjFLtEMrETrDanUqvetfmSi7KVnclhOJ skm.jss@gmail.com"
+ 
 }
