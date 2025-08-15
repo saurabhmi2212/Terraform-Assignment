@@ -4,7 +4,7 @@
 
 
 
-## This repository contains modular Terraform code to provision a complete Azure environment, including a virtual machine (VM) with automated patch management, a network, and security configurations. The project is divided into a main patch management solution and a bonus challenge that combines all modules into a full-stack environment.
+## This repository contains modular Terraform code to provision a complete Azure environment, including a virtual machine (VM) with automated patch management, a network, and security configurations. The project is divided into a main patch management solution and a bonus challenge that combines all modules into a full-stack environment
 
 
 
