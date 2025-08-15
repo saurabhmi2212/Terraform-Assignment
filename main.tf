@@ -54,18 +54,6 @@ module "vm" {
   custom_data         = local_file.cloud_init.content
 }
 
-
-# Placeholder for a VM ID - replace with a real VM resource
-resource "null_resource" "placeholder_vm" {
-  provisioner "local-exec" {
-    command = "echo 'Creating a placeholder for a VM ID...'"
-  }
-}
-
-locals {
-  vm_id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-rg/providers/Microsoft.Compute/virtualMachines/example-vm"
-}
-
 module "log_analytics" {
   source              = "./modules/log_analytics"
   workspace_name      = "example-law"
