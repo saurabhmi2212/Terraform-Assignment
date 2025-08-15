@@ -6,6 +6,46 @@
 
 ## This repository contains modular Terraform code to provision a complete Azure environment, including a virtual machine (VM) with automated patch management, a network, and security configurations. The project is divided into a main patch management solution and a bonus challenge that combines all modules into a full-stack environment.
 
+
+
+##  Structure
+
+```plaintext
+
+.
+├── modules
+│   ├── network
+│   │   ├── main.tf
+│   │   ├── variables.tf
+│   │   └── outputs.tf
+│   ├── nsg
+│   │   ├── main.tf
+│   │   ├── variables.tf
+│   │   └── outputs.tf
+│   ├── vm
+│   │   ├── main.tf
+│   │   ├── variables.tf
+│   │   └── outputs.tf
+│   ├── log_analytics
+│   │   ├── main.tf
+│   │   ├── variables.tf
+│   │   └── outputs.tf
+│   ├── automation
+│   │   ├── main.tf
+│   │   ├── variables.tf
+│   │   └── outputs.tf
+│   └── update_management
+│       ├── main.tf
+│       ├── variables.tf
+│       └── outputs.tf
+├── main.tf
+├── variables.tf
+├── outputs.tf
+├── terraform.tfvars
+└── README.md
+
+
+
 ### **Instructions**
 
 **Initialize Terraform**: Navigate to the root directory of the project and initialize Terraform.
